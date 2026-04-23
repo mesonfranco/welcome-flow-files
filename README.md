@@ -1,2 +1,2 @@
 # welcome-flow-files
-All json files for the Welcome Flow config on all languages supported on the app
+All jSON files that change the Welcome Flow, special sales, tests, etc
