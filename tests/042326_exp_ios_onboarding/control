@@ -1,0 +1,76 @@
+{
+  "id": "042326_exp_ios_onboarding_control",
+  "start": [
+    {
+      "flowId": "default"
+    }
+  ],
+  "steps": [
+    {
+      "stepId": "tutorial",
+      "type": 100,
+      "showClose": true,
+      "content": {
+        "title": "Make your first animation!",
+        "description": "20+ Million people made this, too!",
+        "artwork": {
+          "url": "drawable://tutorial_artwork_medal"
+        },
+        "videoArtwork": "drawable://tutorial_video_artwork",
+        "video": "https://v.flipaclip.com/NERDB20i9kBKik2L1v9yH/master.m3u8",
+        "secondaryActionTitle": "Discover more",
+        "secondaryAction": "flipaclip://discover"
+      }
+    },
+    {
+      "stepId": "paywall",
+      "type": 102,
+      "showClose": true,
+      "content": {
+        "placementId": "042326_exp_ios_onboarding_control"
+      }
+    },
+    {
+      "stepId": "push_permission_request",
+      "type": 103,
+      "showClose": false
+    }
+  ],
+  "flows": {
+    "default": [
+      {
+        "stepId": "push_permission_request",
+        "proceed": [
+          {
+            "stepId": "paywall"
+          }
+        ],
+        "dismiss": {
+          "stepId": "paywall"
+        }
+      },
+      {
+        "stepId": "paywall",
+        "proceed": [
+          {
+            "stepId": "tutorial"
+          }
+        ],
+        "dismiss": {
+          "stepId": "tutorial"
+        }
+      },
+      {
+        "stepId": "tutorial",
+        "proceed": [
+          {
+            "stepId": "finished"
+          }
+        ],
+        "dismiss": {
+          "stepId": "finished"
+        }
+      }
+    ]
+  }
+}
