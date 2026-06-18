@@ -1,0 +1,35 @@
+{
+  "id": "vb_internal_test",
+  "start": [
+    {
+      "flowId": "default"
+    }
+  ],
+  "steps": [
+    {
+      "stepId":"vb_internal_screen",
+      "type":107,
+      "showClose":true,
+      "content":{
+        "title":"Test",
+        "description":"Test vb internal user",
+        "proceedTitle":"Continue"
+      }
+    }
+  ],
+  "flows": {
+    "default": [
+      {
+        "stepId": "vb_internal_screen",
+        "proceed": [
+          {
+            "stepId": "finished"
+          }
+        ],
+        "dismiss": {
+          "stepId": "finished"
+        }
+      }
+    ]
+  }
+}
