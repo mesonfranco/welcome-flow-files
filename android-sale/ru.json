@@ -1,5 +1,5 @@
 {
-  "id": "070226_android_july_sale",
+  "id": "070326_ios_july_sale",
   "start": [
     {
       "flowId": "default"
@@ -29,6 +29,11 @@
       "content": {
         "placementId": "260703_july_sale"
       }
+    },
+    {
+      "stepId": "push_permission_request",
+      "type": 103,
+      "showClose": false
     },
     {
       "stepId": "survey",
@@ -85,6 +90,17 @@
   ],
   "flows": {
     "default": [
+      {
+        "stepId": "push_permission_request",
+        "proceed": [
+          {
+            "stepId": "paywall"
+          }
+        ],
+        "dismiss": {
+          "stepId": "paywall"
+        }
+      },
       {
         "stepId": "paywall",
         "proceed": [
