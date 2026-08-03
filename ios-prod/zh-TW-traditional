@@ -1,0 +1,139 @@
+{
+  "id": "030626_zh_tw",
+  "start": [
+    {
+      "flowId": "default"
+    }
+  ],
+  "steps": [
+    {
+      "stepId": "tutorial",
+      "type": 100,
+      "showClose": true,
+      "content": {
+        "title": "製作你的第一步動畫！",
+        "description": "超過 2000 萬人已經做了自己的動畫！",
+        "artwork": {
+          "url": "drawable://tutorial_artwork_medal"
+        },
+        "videoArtwork": "drawable://tutorial_video_artwork",
+        "video": "https://v.flipaclip.com/Q2niodw4geoizsHKqNLDg/master.m3u8",
+        "secondaryActionTitle": "瞭解更多",
+        "secondaryAction": "flipaclip://discover"
+      }
+    },
+    {
+      "stepId": "paywall",
+      "type": 102,
+      "showClose": true,
+      "content": {
+        "placementId": "welcome_flow_v2"
+      }
+    },
+    {
+      "stepId": "push_permission_request",
+      "type": 103,
+      "showClose": false
+    },
+    {
+      "stepId": "survey",
+      "type": 101,
+      "content": {
+        "id": "061124_zh_tw",
+        "showClose": false,
+        "hideProgress": true,
+        "startFormId": "intent_screen",
+        "forms": [
+          {
+            "id": "intent_screen",
+            "title": "您選用 FlipaClip 的原因是什麼？",
+            "description": "選擇一個",
+            "type": 0,
+            "hideSkip": false,
+            "action": {
+              "nextAction": [
+                {
+                  "formId": "end"
+                }
+              ]
+            },
+            "content": {
+              "style": 0,
+              "singleSelection": true,
+              "options": [
+                {
+                  "id": "intent_learn",
+                  "title": "我想學習如何製作動畫。",
+                  "artwork": "https://s3.amazonaws.com/s.flipaclip.com/articles/MoZcySgktDwSIUO.png"
+                },
+                {
+                  "id": "intent_post",
+                  "title": "我想在社群媒體上貼文",
+                  "artwork": "https://s3.amazonaws.com/s.flipaclip.com/articles/JJNqvDu33f2zj6s.png"
+                },
+                {
+                  "id": "intent_seeking",
+                  "title": "尋求適合學校或工作使用的行動工具。",
+                  "artwork": "https://s3.amazonaws.com/s.flipaclip.com/articles/BKaNfZCcvgqZzxY.png"
+                },
+                {
+                  "id": "intent_content",
+                  "title": "我想看看精彩的動畫內容",
+                  "artwork": "https://s3.amazonaws.com/s.flipaclip.com/articles/4XXkhNmIYp78fVW.png"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "flows": {
+    "default": [
+      {
+        "stepId": "push_permission_request",
+        "proceed": [
+          {
+            "stepId": "paywall"
+          }
+        ],
+        "dismiss": {
+          "stepId": "paywall"
+        }
+      },
+      {
+        "stepId": "paywall",
+        "proceed": [
+          {
+            "stepId": "survey"
+          }
+        ],
+        "dismiss": {
+          "stepId": "survey"
+        }
+      },
+      {
+        "stepId": "survey",
+        "proceed": [
+          {
+            "stepId": "tutorial"
+          }
+        ],
+        "dismiss": {
+          "stepId": "tutorial"
+        }
+      },
+      {
+        "stepId": "tutorial",
+        "proceed": [
+          {
+            "stepId": "finished"
+          }
+        ],
+        "dismiss": {
+          "stepId": "finished"
+        }
+      }
+    ]
+  }
+}

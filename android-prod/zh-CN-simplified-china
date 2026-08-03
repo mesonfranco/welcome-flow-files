@@ -1,0 +1,123 @@
+{
+  "id": "030624_zh_cn_mainland",
+  "start": [
+    {
+      "flowId": "default"
+    }
+  ],
+  "steps": [
+    {
+      "stepId": "tutorial",
+      "type": 100,
+      "showClose": true,
+      "content": {
+        "title": "制作你的第一部动画！",
+        "description": "超过 2000 万人已经做了自己的动画！",
+        "artwork": {
+          "url": "drawable://tutorial_artwork_medal"
+        },
+        "videoArtwork": "drawable://tutorial_video_artwork",
+        "video": "https://s3.amazonaws.com/s.flipaclip.com/articles/qCSzK7iHftqTwAG.mp4",
+        "secondaryActionTitle": "了解更多",
+        "secondaryAction": "flipaclip://discover"
+      }
+    },
+    {
+      "stepId": "paywall",
+      "type": 102,
+      "showClose": true,
+      "content": {
+        "placementId": "welcome_flow_v2"
+      }
+    },
+    {
+      "stepId": "survey",
+      "type": 101,
+      "content": {
+        "id": "061124_zh_cn",
+        "showClose": false,
+        "hideProgress": true,
+        "startFormId": "intent_screen",
+        "forms": [
+          {
+            "id": "intent_screen",
+            "title": "您为什么使用 FlipaClip？",
+            "description": "选择一个",
+            "type": 0,
+            "hideSkip": false,
+            "action": {
+              "nextAction": [
+                {
+                  "formId": "end"
+                }
+              ]
+            },
+            "content": {
+              "style": 0,
+              "singleSelection": true,
+              "options": [
+                {
+                  "id": "intent_learn",
+                  "title": "我想学习如何制作动画。",
+                  "artwork": "https://s3.amazonaws.com/s.flipaclip.com/articles/MoZcySgktDwSIUO.png"
+                },
+                {
+                  "id": "intent_post",
+                  "title": "我想在社交媒体上发帖子",
+                  "artwork": "https://s3.amazonaws.com/s.flipaclip.com/articles/JJNqvDu33f2zj6s.png"
+                },
+                {
+                  "id": "intent_seeking",
+                  "title": "找一个在学校或在工作时使用的移动工具。",
+                  "artwork": "https://s3.amazonaws.com/s.flipaclip.com/articles/BKaNfZCcvgqZzxY.png"
+                },
+                {
+                  "id": "intent_content",
+                  "title": "我想观看酷炫的动画内容",
+                  "artwork": "https://s3.amazonaws.com/s.flipaclip.com/articles/4XXkhNmIYp78fVW.png"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "flows": {
+    "default": [
+      {
+        "stepId": "paywall",
+        "proceed": [
+          {
+            "stepId": "survey"
+          }
+        ],
+        "dismiss": {
+          "stepId": "survey"
+        }
+      },
+      {
+        "stepId": "survey",
+        "proceed": [
+          {
+            "stepId": "tutorial"
+          }
+        ],
+        "dismiss": {
+          "stepId": "tutorial"
+        }
+      },
+      {
+        "stepId": "tutorial",
+        "proceed": [
+          {
+            "stepId": "finished"
+          }
+        ],
+        "dismiss": {
+          "stepId": "finished"
+        }
+      }
+    ]
+  }
+}
